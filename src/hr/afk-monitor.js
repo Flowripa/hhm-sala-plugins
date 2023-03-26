@@ -14,13 +14,13 @@ room.pluginSpec = {
   // All times in the config are in seconds.
   config: {
     // If true, then only admins will be monitored.
-    adminsOnly: true,
+    adminsOnly: false,
     // Max time player can be AFK.
     maxIdleTime: 5 * 60,
     // Max time player can be AFK when he is playing.
-    maxIdleTimeWhenPlaying: 20,
+    maxIdleTimeWhenPlaying: 18,
     // Max time admins can be AFK when they are required to take action.
-    maxAdminIdleTime: 20,
+    maxAdminIdleTime: 60,
     // How many seconds beforehand to warn the player before getting kicked.
     warnBefore: 7,
     // Message to send to player when he is kicked.
@@ -256,8 +256,8 @@ function kickInactivePlayer(playerId) {
  * @param {number} playerId - Id of the player.
  */
 function warnInactivePlayer(playerId) {
-  let msg = `Show you are not AFK or get kicked in ${room.getConfig('warnBefore')} seconds.`
-  room.sendAnnouncement(msg, playerId, 0xFF0000);
+  let msg = `si usted no se mueve en los proximos ${room.getConfig('warnBefore')} segundos será expulsado.`
+  room.sendAnnouncement(msg, playerId, 0xFF0000, 2);
 }
 
 room.onRoomLink = function onRoomLink() {

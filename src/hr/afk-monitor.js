@@ -257,7 +257,7 @@ function kickInactivePlayer(playerId) {
  */
 function warnInactivePlayer(playerId) {
   let msg = `si usted no se mueve en los proximos ${room.getConfig('warnBefore')} segundos será expulsado.`
-  room.sendChat(msg, playerId, 0xFF0000, 'bold', 1);
+  room.sendAnnouncement(msg, playerId, 0xFF0000, 'bold', 2);
 }
 
 room.onRoomLink = function onRoomLink() {
